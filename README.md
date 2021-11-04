@@ -13,7 +13,7 @@ The app creates & updates a customer metafield that stores a string list of prod
 |----------|-------|
 |customer.metafields.shopify_wishlist_app.wishlist|"product-handle-1,product-handle2,..."
 
-The front-end can make requests to the app's endpoints to fetch, create, update or delete a wishlist. The primary information needed to make the requests is a unique Shopify customer ID. Each request type may have extra data needed to fulfill the request, see below.
+The front-end can make requests to the app's endpoints to fetch, create, update or delete a wishlist.
 
 ### How To Use
 
@@ -40,7 +40,7 @@ API_PASSWORD=xxxxxxxxxxxxxxxxxxx
 
 ### Request Endpoints
 
-All endpoints require a single `:id` parameter in the URL which should represent a unique Shopify customer ID.
+All endpoints require a single `:id` parameter in the URL which should represent a unique Shopify customer ID. Each request type may have extra data needed to fulfill the request, see below.
 
 ##### GET `/wishlist/:id`
 ---
