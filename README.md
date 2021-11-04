@@ -17,6 +17,29 @@ The front-end can make requests to the app's endpoints to fetch, create, update 
 
 ### How To Use
 
+1. Host this app on a server of your choice
+2. Setup your server's environment variables
+3. Query the app endpoints (via Javascript) from your Shopify theme to display or manipulate a customer's wishlist
+
+##### ENV Setup
+```
+# Origins/URLs that are allowed to make App/API requests
+# Inlcude the http/https protocols
+# Comma separated for multiple origins
+ALLOWED_ORIGINS=https://customer-wishlist.myshopify.com
+
+# The "myshopify" domain without the "myshopify.com" ending
+SHOPIFY_DOMAIN=customer-wishlist
+
+# Shopify private app key
+API_KEY=xxxxxxxxxxxxxxxxxxx
+
+# Shopify private app password/secret
+API_PASSWORD=xxxxxxxxxxxxxxxxxxx
+```
+
+### Request Endpoints
+
 All endpoints require a single `:id` parameter in the URL which should represent a unique Shopify customer ID.
 
 ##### GET `/wishlist/:id`
@@ -24,7 +47,7 @@ All endpoints require a single `:id` parameter in the URL which should represent
 **Query Parameters**
 |Name|Required|Description|
 |----:|:----:|----|
-|format|optional|The format of the wishlist items to be returned. <br/><br/> Supported value: `product` <br/><br/> By default the wishlist will be returned as an `Array<string>` representing the product handles. Supplying the value `product` will return the wishlist as an `Array<object>` representing the full Shopify product JSON. |
+|format|optional|The format of the wishlist items to be returned. <br/><br/> Supported value: `product` <br/><br/> By default the wishlist will be returned as an `Array<string>` representing the product handles. Supplying the value `product` will return the wishlist as an `Array<object>` representing the full [Shopify product JSON](https://shopify.dev/api/admin-rest/2021-10/resources/product#[get]/admin/api/2021-10/products/{product_id}.json). |
 
 **Response (Default)**
 ```
